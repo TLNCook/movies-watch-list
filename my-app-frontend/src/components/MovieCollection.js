@@ -1,23 +1,19 @@
-import React, { useEffect } from "react";
+import React from "react";
 import MovieCard from "./MovieCard"
 
-function MovieCollection({ movies, setMovies, removeForever }) {
-// useEffect(() => {
-//     fetch("http://localhost:9292/movies")
-//     .then((r) => r.json())
-//     .then((data) => setMovies(data))
-//   }, [setMovies]);
-
+function MovieCollection({ movies, updateMovie, removeForever }) {
+    
   const movieInfo = movies.map((movie) => (
     <MovieCard
         key={movie.id}
         movie={movie}
+        updateMovie={updateMovie}
         onMovieDelete={removeForever}
         />
   ))
   return (
-    <div>
-        <div className="row" id="header">
+    <div className="ui four column grid">
+        <div id="movieCard">
             {movieInfo}
         </div>
     </div>
