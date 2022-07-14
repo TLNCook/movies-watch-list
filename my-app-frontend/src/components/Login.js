@@ -61,7 +61,7 @@ function Login({ setIsLoggedIn }) {
         />
       </div>
       <div>
-        <button className="button" type="submit">Login</button>
+        <button className="ui button" type="submit">Login</button>
       </div>
     </form>
   </div>

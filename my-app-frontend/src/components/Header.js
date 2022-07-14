@@ -4,11 +4,10 @@ function Header () {
 
     return (
         <div id="movieheading">
-            <img className="logo" alt="movies!" src="" />
-            <h1 className="title1">
-           Movies watchlist
-            </h1>
-            
+            <img className="logo" alt="movies!" src="https://as2.ftcdn.net/v2/jpg/02/55/29/97/1000_F_255299752_NbH5tGxdW7GA5uhST8rthDtXigjPhtxu.jpg" />
+            <h1 className="pageTitle">
+                Movies watchlist
+            </h1>      
     </div>
     )
 }

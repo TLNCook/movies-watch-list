@@ -5,9 +5,101 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image:url(https://ak.picdn.net/shutterstock/videos/7542676/thumb/1.jpg);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#movieheading {
+  text-align: center;
+  color: white;
+  background-color: rgb(11, 11, 10);
+  /* background-image: url(https://cdn.pixabay.com/photo/2015/09/21/14/46/banner-949931_960_720.jpg); */
+  /* background-repeat: no-repeat; */
+  
+}
+
+#login {
+  background-image: url(https://media.istockphoto.com/photos/film-reel-and-clapper-board-on-black-background-movie-video-and-and-picture-id1335364181?b=1&k=20&m=1335364181&s=170667a&w=0&h=elFV-iZqbBFa8-plBPoq_QzH_9VdnsBdPEWrrPF7nmU=);
+  background-size: 100%;
+  align-content: center;
+  text-align: center;
+  /* padding-bottom: 500px; */
+  background-repeat: no-repeat;
+}
+
+#login form {
+  height: 1000px
+}
+
+.navbar {
+  /* padding-top:30px;  */
+  padding-bottom: 60px; 
+  background-color: rgba(133, 134, 124, 0.608);
+  font-family: Arial, sans serif;
+  background-color: black;
+  color: white;
+  height: 10px;
+}
+
+.navlink {  
+  padding:10px;  
+  color: white;
+  font-size: 180%;
+  text-decoration:none;
+  float: left;
+}
+
+.logo {
+  width: 220px;
+  height: 150px;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 5%;
+  padding-top: 10px;
+  padding-bottom: 10px;  
+}
+
+.pageTitle {
+  padding-bottom: 10px;
+}
+
+.movieTitle {
+  color: black;
+  text-shadow: .2px .3px white;
+  font-size: x-large
+}
+
+.ui.grid {
+  padding: 50px 200px;
+}
+
+.ui.logout.button {
+  float: right;
+  margin-right: 30px;
+}
+
+.row {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+#movieCard {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  margin: 5px;
+  font-size: 1.1em;
+
+}
+
+#moviePage {
+  margin: 0px 10px 0px 10px;
+}
+
+.ui .card {
+  background-color: rgba(142, 136, 140, 0.855);
 }
