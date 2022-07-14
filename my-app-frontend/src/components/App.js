@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import MoviePage from "./MoviePage";
-import HeaderMain from "./Header";
 import Contact from "./Contact";
 import Login from "./Login";
 
@@ -13,7 +12,6 @@ function App() {
     return (
         <div>
             <NavBar isLoggedIn={isLoggedIn} setisLoggedIn={setIsLoggedIn} />
-            <HeaderMain />
             <Routes>
                 <Route path="/" element={<MoviePage isLoggedIn={isLoggedIn}/>} />
                 <Route path="/.Contact" element={<Contact />} />

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MovieCollection from "./MovieCollection";
 import MovieForm from "./MovieForm";
+import HeaderMain from "./Header";
 
 function MoviePage({ isLoggedIn }) {
     const [movies, setMovies] = useState([])
@@ -42,6 +43,7 @@ function MoviePage({ isLoggedIn }) {
       
     return (
         <div id="moviePage">
+            <HeaderMain />
             <MovieForm onAddMovie={handleAddMovie} />
             <MovieCollection movies={movies} addMovie={handleAddMovie} updateMovie={handleUpdateMovie} removeForever={removeForever} />
         </div>
