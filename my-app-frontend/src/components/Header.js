@@ -4,9 +4,9 @@ function Header () {
 
     return (
         <div id="movieheading">
-            <img className="logo" alt="movies!" src="https://as2.ftcdn.net/v2/jpg/02/55/29/97/1000_F_255299752_NbH5tGxdW7GA5uhST8rthDtXigjPhtxu.jpg" />
+            <img className="headerLogo" alt="movies!" src="https://as2.ftcdn.net/v2/jpg/02/55/29/97/1000_F_255299752_NbH5tGxdW7GA5uhST8rthDtXigjPhtxu.jpg" />
             <h1 className="pageTitle">
-                Movies watchlist
+                Movies Watchlist
             </h1>      
     </div>
     )
