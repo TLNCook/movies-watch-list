@@ -4,7 +4,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
-function MovieCard({ movie, updateMovie, onMovieDelete }) {
+function MovieCard({ movie, updateMovie, onMovieDelete, fetchMovies }) {
     const { id, title, release_date, watched, genre_id, imageUrl } = movie;
     const [show, setShow] = useState(false);
     const [enteredTitle, setTitle] = useState(title);
@@ -14,7 +14,14 @@ function MovieCard({ movie, updateMovie, onMovieDelete }) {
     const [enteredWatched, setWatched] = useState(watched);
 
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleShow = () => {
+        setTitle(title)
+        setYear(release_date)
+        setGenreId(genre_id)
+        setImageUrl(imageUrl)
+        setWatched(watched)
+        setShow(true)
+    };
 
     const titleChangeHandler = (event) => {
         setTitle(event.target.value);
@@ -39,6 +46,7 @@ function MovieCard({ movie, updateMovie, onMovieDelete }) {
     }
 
     const handleSubmit = (e) => {
+        e.preventDefault();
         const updatedMovie = {
             "title": enteredTitle,
             "release_date": enteredYear,
@@ -47,6 +55,8 @@ function MovieCard({ movie, updateMovie, onMovieDelete }) {
             "imageUrl": enteredImageUrl
         }
         updateMovie(updatedMovie, id);
+        fetchMovies();
+        handleClose();
     }
 
     return (

@@ -12,7 +12,14 @@ function MovieForm({onAddMovie}) {
     const [enteredGenreId, setGenreId] = useState(0);
     const [enteredWatched, setWatched] = useState(false);
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setTitle('')
+        setGenreId(0)
+        setYear('')
+        setImageUrl('')
+        setWatched(false);
+        setShow(false)
+    };
     const handleShow = () => setShow(true);
 
     const titleChangeHandler = (event) => {
@@ -37,7 +44,8 @@ function MovieForm({onAddMovie}) {
         setWatched(event.target.checked);
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         const newMovie = {
             "title": enteredTitle,
             "release_date": enteredYear,
@@ -46,11 +54,12 @@ function MovieForm({onAddMovie}) {
             "imageUrl": enteredImageUrl
         }
         onAddMovie(newMovie);
+        handleClose();
     }
 
     return (
         <>
-        <Button variant="dark" onClick={handleShow}>
+        <Button id="newmovie" variant="dark" onClick={handleShow}>
             Add Movie
         </Button>
         <Modal show={show} onHide={handleClose}>

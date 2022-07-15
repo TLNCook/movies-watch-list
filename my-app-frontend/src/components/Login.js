@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from 'react-bootstrap/Button';
 import { useNavigate } from "react-router-dom";
 
 function Login({ setIsLoggedIn }) {
@@ -34,37 +35,35 @@ function Login({ setIsLoggedIn }) {
 
   return (
     <div id="login">
-    <form widths="equal" onSubmit={handleSubmit}>
-     
-      <h3 id="logincolor"> Login</h3>
-      <div className="mb-3">
-        {/* <label className="label">Username</label> */}
-        <input
-            className="input"
-            type="text"
-            name="username"
-            placeholder="Username"
-            fluid label="username"
-            value={formData.username}
-            onChange={handleChange}
-        />
-      </div>
-      <div className="mb-3">
-        {/* <label className="label">Password</label> */}
-        <input
-            className="input"
-            type="dob"
-            name="dob"
-            placeholder="Password"
-            value={formData.dob}
-            onChange={handleChange}
-        />
-      </div>
-      <div>
-        <button className="ui button" type="submit">Login</button>
-      </div>
-    </form>
-  </div>
+      <form widths="equal" onSubmit={handleSubmit}>
+      
+        <h3 id="logincolor"> Sign In</h3>
+        <div className="mb-3">
+          <input
+              className="input"
+              type="text"
+              name="username"
+              placeholder="Username"
+              fluid label="username"
+              value={formData.username}
+              onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <input
+              className="input"
+              type="dob"
+              name="dob"
+              placeholder="Password"
+              value={formData.dob}
+              onChange={handleChange}
+          />
+        </div>
+        <div>
+          <Button id="newmovie" variant="secondary" className="ui button" type="submit">Login</Button>
+        </div>
+      </form>
+    </div>
   );
 }
 

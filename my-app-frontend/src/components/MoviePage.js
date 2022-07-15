@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import MovieCollection from "./MovieCollection";
 import MovieForm from "./MovieForm";
+import NavBar from "./NavBar";
 import HeaderMain from "./Header";
+import { Navigate } from "react-router-dom";
 
-function MoviePage({ isLoggedIn }) {
+
+function MoviePage({ isLoggedIn, setIsLoggedIn }) {
     const [movies, setMovies] = useState([])
 
     useEffect(() => {
@@ -12,7 +15,14 @@ function MoviePage({ isLoggedIn }) {
         .then((data) => setMovies(data))
     }, []);
 
-    // if (!isLoggedIn) return <Navigate to="/.Login" />;
+    if (!isLoggedIn) return <Navigate to="/.Login" />;
+
+    function fetchAllMovies() {
+        fetch("http://localhost:9292/movies")
+        .then((r) => r.json())
+        .then((data) => setMovies(data))
+        setMovies(movies)
+    };
 
     function removeForever(e, id) {
         e.stopPropagation();
@@ -20,8 +30,8 @@ function MoviePage({ isLoggedIn }) {
             method: 'DELETE'
         })
         setMovies((currentMovies) =>
-        currentMovies.filter((movie) => movie.id !== id)
-      );
+            currentMovies.filter((movie) => movie.id !== id)
+        );
     }
 
     function handleUpdateMovie(updatedMovie, id) {
@@ -43,9 +53,16 @@ function MoviePage({ isLoggedIn }) {
       
     return (
         <div id="moviePage">
+            <NavBar isLoggedIn={isLoggedIn} setisLoggedIn={setIsLoggedIn} />
             <HeaderMain />
-            <MovieForm onAddMovie={handleAddMovie} />
-            <MovieCollection movies={movies} addMovie={handleAddMovie} updateMovie={handleUpdateMovie} removeForever={removeForever} />
+            <MovieForm onAddMovie={handleAddMovie} fetchMovies={fetchAllMovies} />
+            <MovieCollection
+                movies={movies}
+                addMovie={handleAddMovie}
+                updateMovie={handleUpdateMovie}
+                removeForever={removeForever}
+                fetchMovies={fetchAllMovies}
+            />
         </div>
     )
 }

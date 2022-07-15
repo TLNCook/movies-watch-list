@@ -1,7 +1,7 @@
 import React from "react";
 import MovieCard from "./MovieCard"
 
-function MovieCollection({ movies, updateMovie, removeForever }) {
+function MovieCollection({ movies, updateMovie, removeForever, fetchMovies }) {
     
   const movieInfo = movies.map((movie) => (
     <MovieCard
@@ -9,6 +9,7 @@ function MovieCollection({ movies, updateMovie, removeForever }) {
         movie={movie}
         updateMovie={updateMovie}
         onMovieDelete={removeForever}
+        fetchMovies={fetchMovies}
         />
   ))
   return (
