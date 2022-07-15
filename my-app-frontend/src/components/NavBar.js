@@ -1,4 +1,6 @@
 import React from "react";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import { NavLink, useNavigate } from "react-router-dom";
 
 const NavBar = ({isLoggedIn, setIsLoggedIn}) => {
@@ -9,14 +11,18 @@ const NavBar = ({isLoggedIn, setIsLoggedIn}) => {
     history("/.Login");
   }
 
-  const renderLogout = isLoggedIn ? <button className="ui logout button" onClick={handleLogout}> Logout </button> : null
+  const renderLogout = isLoggedIn ? <Button id="newmovie" className="ui logout" variant="dark" type="submit"> Logout </Button> : null
 
   return (
     <div>
       <div className="navbar">
-        <NavLink className="navlink" to="/"> Home </NavLink>
-        <NavLink className="navlink" to="/.Contact"> Contact </NavLink>
-        {renderLogout}
+        <div className="link-container">
+          <NavLink className="navlink home" to="/"> Home </NavLink>
+          <NavLink className="navlink contacts" to="/.Contact"> Contact </NavLink>
+        </div>
+        <Form onSubmit={handleLogout}>
+          {renderLogout}
+        </Form>
       </div>
     </div>
   );
